@@ -1,5 +1,7 @@
-package larchik.krestiki_noliki;
+package larchik.krestiki_noliki.model;
 
+
+import larchik.krestiki_noliki.components.*;
 
 import java.util.Random;
 

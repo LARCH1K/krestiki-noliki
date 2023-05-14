@@ -1,4 +1,4 @@
-package larchik.krestiki_noliki;
+package larchik.krestiki_noliki.components;
 
 public class DrawVerifier {
 
