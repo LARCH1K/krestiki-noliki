@@ -6,22 +6,22 @@ import larchik.krestiki_noliki.model.GameTable;
 import java.util.Random;
 
 public class Game {
-    private DataPrinter dataPrinter;
-    private ComputerMove computerMove;
-    private UserMove userMove;
-    private WinnerVerifier winnerVerifier;
-    private DrawVerifier drawVerifier;
+    private final DataPrinter dataPrinter;
+    private final ComputerMove computerMove;
+    private final UserMove userMove;
+    private final WinnerVerifier winnerVerifier;
+    private final CellVerifier cellVerifier;
 
     public Game(final DataPrinter dataPrinter,
                 final ComputerMove computerMove,
                 final UserMove userMove,
                 final WinnerVerifier winnerVerifier,
-                final DrawVerifier drawVerifier) {
+                final CellVerifier cellVerifier) {
         this.dataPrinter = dataPrinter;
         this.computerMove = computerMove;
         this.userMove = userMove;
         this.winnerVerifier = winnerVerifier;
-        this.drawVerifier = drawVerifier;
+        this.cellVerifier = cellVerifier;
     }
 
 
@@ -40,7 +40,7 @@ public class Game {
                 System.out.println("YOU WIN!!!");
                 break;
             }
-            if (drawVerifier.isDraw(gameTable)) {
+            if (cellVerifier.allCellsField(gameTable)) {
                 System.out.println("DRAW!");
                 break;
             }
@@ -50,7 +50,7 @@ public class Game {
                 System.out.println("COMPUTER WIN!!!");
                 break;
             }
-            if (drawVerifier.isDraw(gameTable)) {
+            if (cellVerifier.allCellsField(gameTable)) {
                 System.out.println("DRAW!");
                 break;
             }
