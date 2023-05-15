@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class UserMove {
 
-    private final char[][] mappingTable = {
-            {'7', '8', '9'},
-            {'4', '5', '6'},
-            {'1', '2', '3'}
-    };
+    private final CellNumberConverter cellNumberConverter;
+
+    public UserMove(final CellNumberConverter cellNumberConverter) {
+        this.cellNumberConverter = cellNumberConverter;
+    }
 
     public void make(final GameTable gameTable) {
         while (true) {
@@ -33,17 +33,9 @@ public class UserMove {
             if (userInput.length() == 1) {
                 final char userInputChar = userInput.charAt(0);
                 if (userInputChar >= '1' && userInputChar <= '9') {
-                    for (int i = 0; i < 3; i++) {
-                        for (int j = 0; j < 3; j++) {
-                            if (mappingTable[i][j] == userInputChar) {
-                                return (new Cell(i, j));
-                            }
-                        }
-                    }
+                    return cellNumberConverter.toCell(userInputChar);
                 }
             }
         }
     }
-
-
 }
